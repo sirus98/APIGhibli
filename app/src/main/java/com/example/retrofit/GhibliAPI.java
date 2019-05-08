@@ -6,7 +6,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface MoviedbAPI {
+public interface GhibliAPI {
     @GET("/films")
     Call<List<Movie>> getMovies();
+
+    @GET("/locations")
+    Call<List<Locations>> getLocations();
 }

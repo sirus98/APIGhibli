@@ -9,14 +9,18 @@ import java.util.List;
 
 
 public class MainViewModel extends AndroidViewModel {
-    private MoviedbRepository moviedbRepository;
+    private GhibliRepository ghibliRepository;
 
     public MainViewModel(@NonNull Application application) {
         super(application);
-        moviedbRepository = new MoviedbRepository();
+        ghibliRepository = new GhibliRepository();
     }
 
     public LiveData<List<Movie>> getMovies(){
-        return moviedbRepository.getMovies();
+        return ghibliRepository.getMovies();
+    }
+
+    public LiveData<List<Locations>> getLocations(){
+        return ghibliRepository.getLocations();
     }
 }

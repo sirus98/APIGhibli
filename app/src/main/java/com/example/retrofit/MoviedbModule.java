@@ -5,7 +5,6 @@ import android.util.Log;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -13,10 +12,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MoviedbModule {
-    static MoviedbAPI moviedbAPI;
+    static GhibliAPI ghibliAPI;
 
-    public static MoviedbAPI getAPI(){
-        if(moviedbAPI == null){
+    public static GhibliAPI getAPI(){
+        if(ghibliAPI == null){
             final OkHttpClient client = new OkHttpClient.Builder()
                     .addInterceptor(new LoggingInterceptor())
                    // .addInterceptor(new ApiKeyInterceptor())
@@ -30,9 +29,9 @@ public class MoviedbModule {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
-            moviedbAPI = retrofit.create(MoviedbAPI.class);
+            ghibliAPI = retrofit.create(GhibliAPI.class);
         }
-        return moviedbAPI;
+        return ghibliAPI;
     }
 }
 
