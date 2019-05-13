@@ -2,11 +2,13 @@ package com.example.retrofit;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.List;
 
@@ -40,5 +42,15 @@ public class LocationsActivity extends AppCompatActivity {
 
             }
         });
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LocationsActivity.this, FilmsActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
     }
 }
